@@ -12,10 +12,14 @@ import routerConfig from './router.config.js'
 import './css/animate.css';
     //生成路由实例
     const router=new VueRouter(routerConfig);
-
+  Vue.filter('date',function(input){
+         var oDate=new Date(input);
+         return oDate.getFullYear()+'-'+(oDate.getMonth()+1)+'-'+oDate.getDate()+' '+oDate.getHours()+':'+oDate.getMinutes()+':'+oDate.getSeconds();
+    });
     //最后挂到vue上
     new Vue({
         router,
         render: h => h(App)
     }).$mount('#app');
 
+  
