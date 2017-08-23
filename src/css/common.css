@@ -77,7 +77,7 @@
 
 
 /* ===============我的初始化============================================================== */
-
+* { touch-action: none; } 
 body {
     font-family: "Microsoft YaHei", Helvetica, "Droid Sans", Arial, sans-serif;
     background-color: #f2f2f2;

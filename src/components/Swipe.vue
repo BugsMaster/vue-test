@@ -14,7 +14,7 @@
 	export default{
 		data(){
 			return {
-			  msg:['你好','你不好','李雪静']
+			  msg:['你好','你不好','跑丢的汽水瓶']
 			}
 		}
 	}

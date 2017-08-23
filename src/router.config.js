@@ -1,13 +1,15 @@
 import Home from './components/Home.vue'
 import News from './components/News.vue'
-import Swipe from './components/Swipe.vue'
+import Information from './components/Information.vue'
+import Mytask from './components/Mytask.vue'
 //配置路由
 export default{
 	routes:[
-            {path:'/job', component:Home},
+            {path:'/task', component:Mytask},
+            {path:'/inhence', component:Home},
             {path:'/index',component:News},
-            {path:'/my', component:Swipe},
-            {path:'*', redirect:'/index'}  //404
+            {path:'/my', component:Information},
+            {path:'*', redirect:'/my'}  //404
         ]
 
 }
