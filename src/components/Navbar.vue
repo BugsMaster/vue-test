@@ -1,11 +1,11 @@
 <template>
     <div id="navbar">
         <mt-tabbar :fixed="true">
-            <mt-tab-item id="任务" :class="{iselected:i==1}" >
+            <mt-tab-item id="任务" :class="{iselected:i==1}">
                 <img src="../images/logo.png">
                 <router-link @click.native="selecte1" to="/task">任务</router-link>
             </mt-tab-item>
-            <mt-tab-item id="提升" :class="{iselected:i==2}" >
+            <mt-tab-item id="提升" :class="{iselected:i==2}">
                 <img src="../images/logo.png">
                 <router-link @click.native="selecte2" to="/inhence">提升</router-link>
             </mt-tab-item>
@@ -63,7 +63,7 @@ export default {
                 left: 50%;
                 width: 1.4rem;
                 height: 1.4rem;
-                margin-left:-0.7rem; 
+                margin-left: -0.7rem;
             }
         }
     }

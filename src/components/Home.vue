@@ -3,7 +3,8 @@
         <div class="clearfix title">
             <h3 class="h3">第一天</h3>
             <div class="cilcle">
-                <a class="btn">创建学习计划</a>
+                <!-- <router-link class="btn" :to="{ name: 'plan'}">创建学习计划</router-link> -->
+                <a class="btn" v-on:click="btn">创建学习计划</a>
             </div>
             <h3 class="h3">未开始</h3>
         </div>
@@ -25,6 +26,7 @@
             <mt-button class="modify_plan" @click.native="handleClick">修改计划</mt-button>
             <mt-button class="task_date" @click.native="handleClick">任务日历</mt-button>
         </div>
+        <router-view></router-view>
     </div>
 </template>
 <script>
@@ -32,10 +34,13 @@ import { Indicator } from 'mint-ui';
 export default {
     data() {
         return {
-
+            show: true
         }
     },
     methods: {
+        btn() {
+            this.$router.push({ name: 'plan' });
+        },
         handleClick() {
             Indicator.open({
                 text: 'Loading...',
@@ -110,7 +115,7 @@ export default {
         font-weight: 700;
         color: #333333;
         background-color: transparent;
-        box-shadow:none;
+        box-shadow: none;
     }
     .modify_plan {
         border-right: 1px solid #ccc;
