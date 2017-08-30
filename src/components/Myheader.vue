@@ -4,7 +4,7 @@
             <router-link to="" slot="left">
                 <mt-button icon="back" @click.native="goBack">返回</mt-button>
             </router-link>
-            <mt-button icon="more" slot="right"></mt-button>
+            <mt-button icon="more" slot="right" @click.native="swipe"></mt-button>
         </mt-header>
     </div>
 </template>
@@ -22,6 +22,9 @@ export default {
         goBack() {
             // window.history.back()
             this.$router.go(-1);
+        },
+        swipe() {
+           this.$router.push({ name: 'swipe' });
         }
     }
 

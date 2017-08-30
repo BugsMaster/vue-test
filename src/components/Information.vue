@@ -1,7 +1,7 @@
 <template>
     <div id="infor">
         <div class="head">
-            <img src="../images/logo.png" alt="">
+            <img src="../images/logo.png" alt="" v-on:click="emit">
             <h5>认真的小炒肉</h5>
         </div>
         <ul class="title">
@@ -50,7 +50,12 @@ export default {
         }
     },
     methods: {
-
+       emit(){
+          this.$store.commit({
+                type: 'countPlusLocalState',
+                amount: '--疾风剑豪'
+            })
+       }
     }
 }
 </script>

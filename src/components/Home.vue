@@ -1,7 +1,7 @@
 <template>
     <div id="home">
         <div class="clearfix title">
-            <h3 class="h3">第一天</h3>
+            <h3 class="h3" v-on:click="load">第一天</h3>
             <div class="cilcle">
                 <!-- <router-link class="btn" :to="{ name: 'plan'}">创建学习计划</router-link> -->
                 <a class="btn" v-on:click="btn">创建学习计划</a>
@@ -24,8 +24,11 @@
         </ul>
         <div class="plan_box">
             <mt-button class="modify_plan" @click.native="handleClick">修改计划</mt-button>
-            <mt-button class="task_date" @click.native="handleClick">任务日历</mt-button>
+            <mt-button class="task_date" @click.native="mylogin">任务日历</mt-button>
         </div>
+        <h3>看我的绝招： {{count}}</h3>
+        <h3>看我的绝招： {{perlist}}</h3>
+        <h3>看我的绝招： {{mylist}}</h3>
         <router-view></router-view>
     </div>
 </template>
@@ -34,7 +37,7 @@ import { Indicator } from 'mint-ui';
 export default {
     data() {
         return {
-            show: true
+
         }
     },
     methods: {
@@ -49,8 +52,30 @@ export default {
             setTimeout(function() {
                 Indicator.close();
             }, 2000);
+        },
+        mylogin: function(event) {
+            this.$store.commit({
+                type: 'increment',
+                amount: '--疾风剑豪'
+            })
+        },
+        load: function(){
+            this.$store.dispatch({ type: 'incrementAsync', time : 30 })  
+        }
+        
+    },
+    computed: {
+        count() {
+            return this.$store.state.user.count
+        },
+        perlist() {
+            return this.$store.state.user.countPlusLocalState()
+        },
+        mylist(){
+            return this.$store.getters.countPlusStateeee
         }
     }
+
 }
 </script>
 <style scoped lang="less">

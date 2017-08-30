@@ -1,9 +1,8 @@
 <template>
     <div id="app">
         <Myheader :child-msg="msg"></Myheader>
-        <span class="login" v-on:click="mylogin"> {{count}}</span>
         <Maincontent class="content"></Maincontent>
-        <Navbar></Navbar>
+        <Navbar v-show="navshow"></Navbar>
     </div>
 </template>
 <script>
@@ -24,13 +23,6 @@ export default {
         // ...mapMutations([
         //     'increment' // 映射 this.increment() 为 this.$store.commit('increment')
         // ]),
-        mylogin: function(event) {
-
-            this.$store.commit({
-                type: 'increment',
-                amount: '--疾风剑豪'
-            })
-        }
 
     },
     components: {
@@ -38,9 +30,14 @@ export default {
         Navbar,
         Maincontent
     },
-    computed: mapState({
-        count: "count"
-    })
+    computed: {
+        headshow(){
+            return this.$route.path.split('/').length>2?false:true
+        },
+        navshow(){
+            return this.$route.path.split('/').length>2?false:true
+        }
+    }
 
 
 
@@ -84,12 +81,4 @@ a {
     padding: 0 10px;
 }
 
-.login {
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    z-index: 100;
-    background-color: yellowgreen;
-    line-height: 1.4rem;
-}
 </style>

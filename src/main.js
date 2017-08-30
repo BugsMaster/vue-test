@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import axios from 'axios'
 import App from './App.vue'
 // mint加载
 import Mint from 'mint-ui'
@@ -8,7 +9,7 @@ Vue.use(Mint);
 // 路由模块
 Vue.use(VueRouter);
 
-import store from './store/index.js'//vuex
+import store from './store/store.js'//vuex
 
 import routerConfig from './router.config.js'
 // 运动模块
