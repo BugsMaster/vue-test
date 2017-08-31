@@ -6,7 +6,7 @@
                 <!-- <router-link class="btn" :to="{ name: 'plan'}">创建学习计划</router-link> -->
                 <a class="btn" v-on:click="btn">创建学习计划</a>
             </div>
-            <h3 class="h3">未开始</h3>
+            <h3 class="h3"  v-on:click="_legend">未开始</h3>
         </div>
         <ul class="learnday">
             <li>
@@ -29,6 +29,7 @@
         <h3>看我的绝招： {{count}}</h3>
         <h3>看我的绝招： {{perlist}}</h3>
         <h3>看我的绝招： {{mylist}}</h3>
+        <h3>各位观众： {{legend}}</h3>
         <router-view></router-view>
     </div>
 </template>
@@ -61,6 +62,9 @@ export default {
         },
         load: function(){
             this.$store.dispatch({ type: 'incrementAsync', time : 30 })  
+        },
+        _legend: function(){
+            this.$store.dispatch({ type: 'legenghero', time : 100 })
         }
         
     },
@@ -73,9 +77,11 @@ export default {
         },
         mylist(){
             return this.$store.getters.countPlusStateeee
+        },
+        legend(){
+            return this.$store.state.user.name
         }
     }
-
 }
 </script>
 <style scoped lang="less">

@@ -1,0 +1,1 @@
+export const COM_STATUS  = 'COM_HEADER_STATUS'
